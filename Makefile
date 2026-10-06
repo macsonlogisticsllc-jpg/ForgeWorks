@@ -1,5 +1,5 @@
 TARGET = forgeworks
-OBJS = src/main_psp.o src/screens.o src/render.o src/world.o src/data.o src/gfx.o src/assets.o
+   OBJS = main_psp.o screens.o render.o world.o data.o gfx.o assets.o
 
 INCDIR =
 CFLAGS = -O2 -G0 -Wall -Wno-missing-field-initializers
