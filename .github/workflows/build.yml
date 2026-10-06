@@ -1,0 +1,24 @@
+name: Build PSP EBOOT
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container: pspdev/pspdev:latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Make sure build tools are present
+        run: apk add --no-cache make || true
+
+      - name: Build EBOOT.PBP
+        run: make
+
+      - name: Upload the game
+        uses: actions/upload-artifact@v4
+        with:
+          name: Forgeworks-PSP
+          path: EBOOT.PBP
